@@ -237,6 +237,8 @@ class CRM_Activityreport_Data {
    * Return an array containing all Fields and Custom Fields of Activity entity,
    * keyed by their API keys and extended with available fields Option Values.
    * 
+   * KJC 2017-05-04 removed "t" lines 255 and 258 in front of ('Activity Type') and ('Activity Date Time')
+   *
    * @return array
    */
   protected static function getActivityFields() {
@@ -250,10 +252,10 @@ class CRM_Activityreport_Data {
     unset($fields['relationship_id']);
     unset($fields['source_record_id']);
     if (!empty($fields['activity_type_id'])) {
-        $fields['activity_type_id']['title'] = t('Activity Type');
+        $fields['activity_type_id']['title'] = ('Activity Type');
     }
     if (!empty($fields['activity_date_time'])) {
-        $fields['activity_date_time']['title'] = t('Activity Date Time');
+        $fields['activity_date_time']['title'] = ('Activity Date Time');
     }
     $keys = CRM_Activity_DAO_Activity::fieldKeys();
     $result = array();
